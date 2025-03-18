@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: francesca <francesca@student.42.fr>        +#+  +:+       +#+         #
+#    By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:23:25 by francesca         #+#    #+#              #
-#    Updated: 2025/03/17 18:34:20 by francesca        ###   ########.fr        #
+#    Updated: 2025/03/18 14:53:31 by fmontini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME	=	push_swap
 
 # Source files (add your files from src/ here)
 SRC	=	push_swap.c \
+		ft_create_node.c \
 		ft_create_stack.c \
 		ft_exit.c \
 		ft_swap.c \

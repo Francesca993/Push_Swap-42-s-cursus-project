@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:45:33 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/17 18:39:15 by francesca        ###   ########.fr       */
+/*   Updated: 2025/03/18 14:49:26 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int ft_atoi2(const char *str)
 }
 
 // Funzione per stampare lo stack usando `ft_printf`
-void	print_stack(t_list *stack)
+void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
-		ft_printf("%d -> ", (int)(intptr_t)stack->content);
+		ft_printf("%d -> ", stack->value);
 		stack = stack->next;
 	}
 	ft_printf("NULL\n");
@@ -63,10 +63,10 @@ char    **read_input(char *argv)
 
 }
 
-t_list  *init_stack_a_tostring(char *argv)
+t_node  *init_stack_a_tostring(char *argv)
 {
-    t_list  *stack_a;
-    t_list  *new_node;
+    t_node  *stack_a;
+    t_node  *new_node;
     char    **numbers;
     int     i;
     int     num;
@@ -78,14 +78,14 @@ t_list  *init_stack_a_tostring(char *argv)
     while (numbers[i])
     {
         num = ft_atoi2(numbers[i]); // converte la stringa in numero
-        new_node = ft_lstnew((void*)(intptr_t)num);//crea un nodo con lstnew di libft
+        new_node = create_node(num);//crea un nodo con lstnew di libft
         if (!new_node)
         {
             ft_printf("Err: allocation memory failed.\n");
             free_stack(stack_a);
             return (NULL);
         }
-        ft_lstadd_back(&stack_a, new_node);//aggiunge in fondo per mantenere l ordine
+        add_node_back(&stack_a, new_node);//aggiunge in fondo per mantenere l ordine
         free(numbers[i]);
         i++;
     }
@@ -93,11 +93,11 @@ t_list  *init_stack_a_tostring(char *argv)
     return (stack_a);
 }
 
-t_list  *init_stack_a_toinput(int argc, char **argv)
+t_node  *init_stack_a_toinput(int argc, char **argv)
 {
     int     i;
-    t_list  *stack_a;
-    t_list  *new_node;
+    t_node  *stack_a;
+    t_node  *new_node;
     int     num;
 
     stack_a = NULL;
@@ -105,8 +105,8 @@ t_list  *init_stack_a_toinput(int argc, char **argv)
     while (i < argc)
     {
         num = ft_atoi2(argv[i]);
-        new_node = ft_lstnew((void *)(intptr_t)num);
-        ft_lstadd_back(&stack_a, new_node);
+        new_node = create_node(num);
+        add_node_back(&stack_a, new_node);
         i++;
     }
     return (stack_a);
@@ -118,10 +118,10 @@ t_list  *init_stack_a_toinput(int argc, char **argv)
 //    If it is, it means it is a quoted string. Call
 //	  another function. <init_stack_a_tostring>
 // 3. It checks if the number of input is greater than 2.
-//     If it is, it lists the arguements.
-t_list  *ft_process(int argc, char **argv)
+//     If it is, it nodes the arguements.
+t_node  *ft_process(int argc, char **argv)
 {
-    t_list  *stack_a;
+    t_node  *stack_a;
 
     if (argc < 2)
         error_exit("Insufficents parameters.\n");

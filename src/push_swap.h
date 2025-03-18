@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:12:11 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/17 18:30:44 by francesca        ###   ########.fr       */
+/*   Updated: 2025/03/18 14:49:50 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,32 @@ typedef struct s_node {
     struct s_node *next;
 } t_node;
 
+//Functions to create node
+t_node  *create_node(int value);
+void    add_node_back(t_node **stack, t_node *new_node);
+//Function for exit and free
 void	error_exit(const char *msg);
-void	print_stack(t_list *stack);
+void    free_stack(t_node *stack);
+//Function to read and create the stack
+t_node  *ft_process(int argc, char **argv);
+void	print_stack(t_node *stack);
 int     ft_atoi2(const char *str);
-void    free_stack(t_list *stack);
-int     is_duplicate(t_list *stack);
-t_list  *ft_process(int argc, char **argv);
 char    **read_input(char *argv);
-t_list  *init_stack_a_tostring(char *argv);
-t_list  *init_stack_a_toinput(int argc, char **argv);
-void    sa(t_list **a);
-void    sb(t_list **b);
-void    ss(t_list **a, t_list **b);
-void    pa(t_list **a, t_list **b);
-void    pb(t_list **b, t_list **a);
-void    ra(t_list **a);
-void    rb(t_list **b);
-void    rr(t_list **a, t_list **b);
-void    rra(t_list **a);
-void    rrb(t_list **b);
-void    rrr(t_list **a, t_list **b);
+t_node  *init_stack_a_tostring(char *argv);
+t_node  *init_stack_a_toinput(int argc, char **argv);
+//Function to check if there are duplicate
+int     is_duplicate(t_node *stack);
+//Operations
+void    sa(t_node **a);
+void    sb(t_node **b);
+void    ss(t_node **a, t_node **b);
+void    pa(t_node **a, t_node **b);
+void    pb(t_node **b, t_node **a);
+void    ra(t_node **a);
+void    rb(t_node **b);
+void    rr(t_node **a, t_node **b);
+void    rra(t_node **a);
+void    rrb(t_node **b);
+void    rrr(t_node **a, t_node **b);
 
 #endif

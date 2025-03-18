@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:22:44 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/17 18:26:06 by francesca        ###   ########.fr       */
+/*   Updated: 2025/03/18 14:52:47 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    t_list  *stack_a;
+    t_node  *stack_a;
 
     stack_a = ft_process(argc, argv);
     if (!stack_a)

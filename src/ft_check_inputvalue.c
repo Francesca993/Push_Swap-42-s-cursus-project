@@ -3,19 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_inputvalue.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
+/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:14:06 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/17 18:30:35 by francesca        ###   ########.fr       */
+/*   Updated: 2025/03/18 14:46:57 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     is_duplicate(t_list *stack)
+/*
+Function that check if there are duplicate in stack
+*/
+int     is_duplicate(t_node *stack)
 {
-    t_list *current;
-    t_list *checker;
+    t_node *current;
+    t_node *checker;
 
     current = stack;
     while (current)
@@ -23,7 +26,7 @@ int     is_duplicate(t_list *stack)
         checker = current->next;
         while (checker)
         {
-            if ((int)(intptr_t)current->content == (int)(intptr_t)checker->content)
+            if (current->value == checker->value)
                 return (1); // Trovato duplicato
             checker = checker->next;
         }

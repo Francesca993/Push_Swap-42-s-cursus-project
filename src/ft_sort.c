@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 15:20:13 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 14:41:05 by fmontini         ###   ########.fr       */
+/*   Created: 2025/03/18 11:37:44 by fmontini          #+#    #+#             */
+/*   Updated: 2025/03/18 11:55:23 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    free_stack(t_node *stack)
+void    sort_three(t_list **stack)
 {
-    t_node  *temp;
+        int a;
+        int b;
+        int c;
 
-    while (stack)
-    {
-        temp = stack->next;
-        free(stack);
-        stack = temp;
-    }
-}
-void	error_exit(const char *msg)
-{
-	ft_printf(msg);
-	exit(EXIT_FAILURE);
+    a = (int)(intptr_t)(*stack)->content;
+    b = (int)(int)
 }
