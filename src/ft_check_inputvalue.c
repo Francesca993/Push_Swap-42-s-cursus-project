@@ -6,7 +6,7 @@
 /*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:14:06 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 14:46:57 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:04:21 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ int     is_duplicate(t_node *stack)
         current = current->next;
     }
     return (0); // Nessun duplicato
+}
+
+int stack_size(t_node *stack)
+{
+    int count = 0;
+
+    while (stack)
+    {
+        count++;
+        stack = stack->next;
+    }
+    return count;
 }

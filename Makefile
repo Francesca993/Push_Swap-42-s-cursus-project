@@ -6,7 +6,7 @@
 #    By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:23:25 by francesca         #+#    #+#              #
-#    Updated: 2025/03/18 14:53:31 by fmontini         ###   ########.fr        #
+#    Updated: 2025/03/18 16:35:13 by fmontini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC	=	push_swap.c \
 		ft_rotate.c \
 		ft_reverse_rotate.c \
 		ft_check_inputvalue.c \
+		ft_small_sort.c \
 
 # adds the src/ prefix to files in SRC
 SRC	:= $(addprefix src/, $(SRC))

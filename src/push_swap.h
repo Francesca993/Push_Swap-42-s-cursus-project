@@ -6,7 +6,7 @@
 /*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:12:11 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 14:49:50 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:08:41 by fmontini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_node {
 //Functions to create node
 t_node  *create_node(int value);
 void    add_node_back(t_node **stack, t_node *new_node);
+int     stack_size(t_node *stack);
 //Function for exit and free
 void	error_exit(const char *msg);
 void    free_stack(t_node *stack);
@@ -54,5 +55,9 @@ void    rr(t_node **a, t_node **b);
 void    rra(t_node **a);
 void    rrb(t_node **b);
 void    rrr(t_node **a, t_node **b);
+// Operation to sort number
+void    sort_three(t_node **stack);
+int find_min(t_node *stack);
+void sort_five(t_node **stack_a, t_node **stack_b);
 
 #endif
