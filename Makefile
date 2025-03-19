@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+         #
+#    By: francesca <francesca@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 14:23:25 by francesca         #+#    #+#              #
-#    Updated: 2025/03/18 16:35:13 by fmontini         ###   ########.fr        #
+#    Updated: 2025/03/19 11:10:43 by francesca        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,16 @@ NAME	=	push_swap
 SRC	=	push_swap.c \
 		ft_create_node.c \
 		ft_create_stack.c \
+		ft_create_stack_utils.c \
 		ft_exit.c \
 		ft_swap.c \
 		ft_push.c \
 		ft_rotate.c \
 		ft_reverse_rotate.c \
+		ft_bubble_sort.c \
 		ft_check_inputvalue.c \
 		ft_small_sort.c \
+		ft_big_sort.c \
 
 # adds the src/ prefix to files in SRC
 SRC	:= $(addprefix src/, $(SRC))

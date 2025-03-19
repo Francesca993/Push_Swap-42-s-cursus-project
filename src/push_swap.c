@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:22:44 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 15:10:58 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:56:10 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ int main(int argc, char **argv)
 {
     t_node  *stack_a;
     t_node  *stack_b = NULL;
+    int     size;
 
     stack_a = ft_process(argc, argv);
     if (!stack_a)
         error_exit("Err: stack A creation failed.\n");
-    ft_printf("Stack A inizializzato:\n");
-    print_stack(stack_a);
-    if (stack_size(stack_a) == 3)
+    size = stack_size(stack_a);
+    // ft_printf("Stack A inizializzato:\n");
+    // ft_printf("%d\n", size);
+    // print_stack(stack_a);
+    if (size == 3)
         sort_three(&stack_a);
-    if (stack_size(stack_a) == 4 || stack_size(stack_a) == 5)
+    if (size == 4 || size == 5)
         sort_five(&stack_a, &stack_b);
-    ft_printf("dopo cambi A\n");
-    print_stack(stack_a);
-    print_stack(stack_b);
+    if (size > 5)
+        big_sort(&stack_a, &stack_b, size);
+    //print_stack(stack_a);
     free_stack(stack_a);
+    free_stack(stack_b);
     return (0);
 }

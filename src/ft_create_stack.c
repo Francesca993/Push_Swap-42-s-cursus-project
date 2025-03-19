@@ -3,43 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:45:33 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 14:49:26 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/19 09:06:03 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int ft_atoi2(const char *str)
-{
-	int				mod;
-	long long int	i;
-
-	i = 0;
-	mod = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-		|| *str == '\v' || *str == '\r')
-		str++;
-	if (*str == '-')
-	{
-		mod = -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			error_exit("Atoi failed.\n");
-		i = i * 10 + (*str - 48);
-		str++;
-	}
-	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
-		error_exit("Falls the conversion numbers\n");
-	return (mod * i);
-}
 
 // Funzione per stampare lo stack usando `ft_printf`
 void	print_stack(t_node *stack)
@@ -112,31 +83,3 @@ t_node  *init_stack_a_toinput(int argc, char **argv)
     return (stack_a);
 }
 
-// This function does three things.
-// 1. It checks if the number of input is less than 2.
-// 2. It checks if the number of input is equal to 2.
-//    If it is, it means it is a quoted string. Call
-//	  another function. <init_stack_a_tostring>
-// 3. It checks if the number of input is greater than 2.
-//     If it is, it nodes the arguements.
-t_node  *ft_process(int argc, char **argv)
-{
-    t_node  *stack_a;
-
-    if (argc < 2)
-        error_exit("Insufficents parameters.\n");
-    if (argc == 2)
-        stack_a = init_stack_a_tostring(argv[1]);
-    else
-        stack_a = init_stack_a_toinput(argc, argv);
-    if (!stack_a)
-        error_exit("Err: stack A creation failed.\n");
-    if (is_duplicate(stack_a))
-    {
-        ft_printf("Error: Duplicates found in stack.\n");
-        free_stack(stack_a);
-        return (NULL);
-    }
-    ft_printf("Stack A correctly inizialized.\n");
-    return (stack_a);
-}

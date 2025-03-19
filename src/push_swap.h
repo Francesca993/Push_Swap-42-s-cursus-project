@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:12:11 by francesca         #+#    #+#             */
-/*   Updated: 2025/03/18 15:08:41 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:00:32 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,21 @@
 # include "../Libft/libft.h"         // Include le funzioni della libft
 # include "../Printf/ft_printf.h"         // Include le funzioni della libft
 
+typedef struct s_node_data
+{
+    int total;
+    int num_chunks;
+    int node_size;
+    int current_chunk;
+    int pushed;
+} t_node_data;
+
+
 // Struttura per un nodo dello stack
 typedef struct s_node {
     int value;
     struct s_node *next;
+    int rank;
 } t_node;
 
 //Functions to create node
@@ -57,7 +68,18 @@ void    rrb(t_node **b);
 void    rrr(t_node **a, t_node **b);
 // Operation to sort number
 void    sort_three(t_node **stack);
-int find_min(t_node *stack);
-void sort_five(t_node **stack_a, t_node **stack_b);
+void    sort_five(t_node **stack_a, t_node **stack_b);
+void    big_sort(t_node **stack_a, t_node **stack_b, int size);
+//Algoritms
+int     *bubble_sort(int *array, int size);
+//Function helpers to sort number
+int     find_min(t_node *stack);
+void    assign_rank(t_node *stack, int *array, int size);
+int     *created_sorted_array(t_node *stack, int size);
+void    push_to_stack_b(t_node **a, t_node **b, int group_size);
+void    bring_to_pop(t_node **stack, int position);
+int     find_max_position(t_node *stack);
+void    restore_from_stack_b(t_node **a, t_node **b);
+
 
 #endif

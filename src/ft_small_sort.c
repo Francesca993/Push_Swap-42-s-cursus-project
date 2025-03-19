@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   ft_small_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fmontini <fmontini@student.42.fr>          +#+  +:+       +#+        */
+/*   By: francesca <francesca@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:37:44 by fmontini          #+#    #+#             */
-/*   Updated: 2025/03/18 15:08:12 by fmontini         ###   ########.fr       */
+/*   Updated: 2025/03/19 09:06:03 by francesca        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void    sort_three(t_node **stack)
         rra(stack);
 }
 
-//Per 4 o 5 numeri, spostiamo i più piccoli in stack_b, 
-//ordiniamo i restanti con sort_three() e li rimettiamo in stack_a.
 int find_min(t_node *stack)
 {
     int min = stack->value;
@@ -52,7 +50,8 @@ int find_min(t_node *stack)
     }
     return min;
 }
-
+//Se ci sono 4 o 5 numeri, spostiamo i più piccoli in stack_b, 
+//ordiniamo i restanti con sort_three() e li rimettiamo in stack_a.
 void sort_five(t_node **stack_a, t_node **stack_b)
 {
     int min;
